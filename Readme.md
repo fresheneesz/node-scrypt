@@ -140,6 +140,8 @@ For interactive authentication, set `maxtime` to `0.1` - 100 milliseconds.
     scrypt.passwordHash(password, maxtime, function(err, pwdhash) {
         if (!err) {
             //pwdhash should now be stored in the database
+            //Note that the salt is encoded *inside* pwdhash, 
+            // so storing pwdhash, stores both the raw hash *and* a salt
         }
     });
 
